@@ -3,10 +3,6 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UserSecretsId>dotnet-Main-84438531-1D1F-45B6-AEB9-2E92AFAA0800</UserSecretsId>
-    <!-- <RuntimeIdentifier>win-x86</RuntimeIdentifier>
-    <PublishTrimmed>True</PublishTrimmed>
-    <PublishSingleFile>True</PublishSingleFile>
-    <UseAppHost>True</UseAppHost> -->
   </PropertyGroup>
 
   <ItemGroup>

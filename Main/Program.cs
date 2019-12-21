@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging.EventLog;
 
 namespace Main
 {
@@ -23,13 +24,12 @@ namespace Main
             })
             .ConfigureServices((hostContext, services) =>
             {
-              services.AddHostedService<Worker>();
-                // .Configure<EventLogSettings>(config =>
-                // {
-                //   config.LogName = "Sample Service";
-                //   config.SourceName = "Sample Service Source";
-
-                // });
+              services.AddHostedService<Worker>()
+                .Configure<EventLogSettings>(config =>
+                {
+                  config.LogName = "Sample Service";
+                  config.SourceName = "Sample Service Source";
+                });
             });
   }
 }
