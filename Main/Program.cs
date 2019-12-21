@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.EventLog;
 
 namespace Main
@@ -22,6 +23,8 @@ namespace Main
             {
               // configure the app here.
             })
+            .ConfigureLogging(options =>
+              options.AddFilter<EventLogLoggerProvider>(level => level >= LogLevel.Information))
             .ConfigureServices((hostContext, services) =>
             {
               services.AddHostedService<Worker>()

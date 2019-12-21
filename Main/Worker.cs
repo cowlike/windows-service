@@ -22,9 +22,9 @@ namespace Main
             var x = 0;
             while (!stoppingToken.IsCancellationRequested)
             {
-                _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
+                _logger.LogInformation("Worker running at: {0}", DateTimeOffset.Now);
                 if (x++ % 5 == 0) {
-                    _logger.LogWarning("Worker running {x}", x);
+                    _logger.LogWarning("Worker running {0}", x);
                 }
                 await Task.Delay(1000, stoppingToken);
             }
