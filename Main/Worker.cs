@@ -19,9 +19,13 @@ namespace Main
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
+            var x = 0;
             while (!stoppingToken.IsCancellationRequested)
             {
                 _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
+                if (x++ % 5 == 0) {
+                    _logger.LogWarning("Worker running {x}", x);
+                }
                 await Task.Delay(1000, stoppingToken);
             }
         }
